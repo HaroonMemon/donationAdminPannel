@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
-
+// import './App.css';
+import Login from './Components/Login';
+import { BrowserRouter, Routes, Route, Switch } from 'react-router-dom';
+import Home from './Components/Home';
+import Donation from './Components/Donation';
+import Request from './Components/Request';
+import Privacy from './Components/Privacy';
+import Term from './Components/Term';
+import About from './Components/About';
+import SideBar from './Components/SideBar';
+import { ToastContainer } from 'react-toastify';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        {/* <Login/> */}
+        <Routes>
+        <Route exact path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        </Routes>
+        {/* <SideBar> */}
+        <Routes>
+          <Route path="/request" element={<Request />} />
+          <Route path="/donation" element={<Donation />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/term" element={<Term />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/sidebar" element={<SideBar/>}></Route>
+          {/* Other routes */}
+        </Routes>
+        {/* </SideBar> */}
+      </BrowserRouter>
+      <ToastContainer />
+
     </div>
   );
 }
